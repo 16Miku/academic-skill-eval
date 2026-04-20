@@ -39,6 +39,8 @@
 - 已创建项目根目录 `README.md`。
 - 已为各 skill 的 `run/` 目录创建统一模板文件。
 - 已完成 `literature-review` 的首轮功能测试。
+- 已完成 `academic-research-hub` 的首轮功能测试。
+- 已完成 `daily-paper-digest` 的首轮功能测试。
 - 已创建 `.gitignore` 并将 `.clawhub/` 加入忽略规则。
 - 已完成首轮项目基础内容提交。
 
@@ -46,10 +48,10 @@
 - 正在逐个执行各 skill 的实际测评，并沉淀测试记录与综合结论。
 
 ### 待完成
-- 为不同类型的 skill 设计具体测试任务。
-- 为每个 skill 的 `run/` 目录准备统一模板文件。
-- 逐个调用 subagent 开始实际测评。
-- 汇总每个 skill 的测试结果与综合结论。
+- 继续完成剩余搜索 / 检索型 skill（`daily-paper-digest`）的首轮测试。
+- 开始单篇总结 / 解析型 skill（`paper-summary`、`paper-summarize-academic`）的首轮测试。
+- 开始写作 / 工作流型 skill（`research-paper-writer`、`paper-writing-workflow`、`zeelin-academic-paper`、`thesis-helper`）的首轮测试。
+- 汇总各类型 skill 的阶段性横向对比结论。
 - 持续更新飞书汇报文档。
 
 ## 备注
