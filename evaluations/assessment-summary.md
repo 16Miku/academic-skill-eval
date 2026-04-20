@@ -26,16 +26,16 @@
 - `literature-review`
 - `academic-research-hub`
 - `paper-writing-workflow`
+- `zeelin-academic-paper`
 
 ### 待测
 - `paper-summary`
 - `paper-summarize-academic`
-- `research-paper-writer`
-- `zeelin-academic-paper`
 - `thesis-helper`
 
 ### 暂不推荐
 - `daily-paper-digest`
+- `research-paper-writer`
 
 ---
 
@@ -48,9 +48,9 @@
 | daily-paper-digest | 搜索 / 检索型（偏速递） | 已完成首轮测试 | 不推荐 | 每日论文播报、研究热点订阅、信息流聚合（理论上） | 稳定支撑综述导向专题检索、稳定完成每日速递 | 低 | 本轮实际表现说明当前不好用：默认主链路与昨天窗口补测均返回空结果 |
 | paper-summary | 单篇总结 / 解析型 | 待测 | 待定 | 待测 | 待测 | 待定 | 待执行首轮测试 |
 | paper-summarize-academic | 单篇总结 / 解析型 | 待测 | 待定 | 待测 | 待测 | 待定 | 待执行首轮测试 |
-| research-paper-writer | 写作 / 工作流型 | 待测 | 待定 | 待测 | 待测 | 待定 | 待执行首轮测试 |
+| research-paper-writer | 写作 / 工作流型 | 已完成首轮测试 | 不推荐 | 不适合 | 不适合 | 低 | 已验证为 stub，不能实际生成论文正文 |
 | paper-writing-workflow | 写作 / 工作流型 | 已完成首轮测试 | 一般 | 论文写作流程拆解、通用大纲生成、作为上层 workflow / 模板框架组织写作步骤 | 直接自动产出高质量论文初稿、稳定串联依赖 skill 完成端到端写作 | 中低 | 更像 workflow 脚手架；联动补测显示关键依赖 `research-paper-writer` 当前仍是 stub |
-| zeelin-academic-paper | 写作 / 工作流型 | 待测 | 待定 | 待测 | 待测 | 待定 | 待执行首轮测试 |
+| zeelin-academic-paper | 写作 / 工作流型 | 已完成首轮测试 | 一般 | 基于真实文献线索生成论文草稿、作为写作起稿辅助工具 | 直接生成高可信终稿、严格逐篇引用整合 | 中 | 已实际产出完整论文纯文本；联动 `literature-review` 后更贴题，但仍偏模板化草稿 |
 | thesis-helper | 写作 / 工作流型 | 待测 | 待定 | 待测 | 待测 | 待定 | 待执行首轮测试 |
 
 ---
@@ -89,7 +89,19 @@
 
 ---
 
-### 4. paper-writing-workflow
+### 4. research-paper-writer
+- 类型：写作 / 工作流型
+- 当前结论：不推荐
+- 适用场景：当前不适合作为真实论文写作 skill 使用
+- 主要优点：`SKILL.md` 中对学术论文结构、IEEE/ACM 格式与写作规范的说明较完整
+- 主要问题：实际实现 `evaluations/research-paper-writer/skill/research-paper-writer/index.js:1` 仅为 stub，只返回成功消息与输入回显，没有任何正文生成逻辑，因此无法实际写出论文或综述草稿
+- 商业化判断：**低**
+  - 当前不具备可交付的论文写作能力
+  - 不建议作为论文生成核心模块继续投入
+
+---
+
+### 5. paper-writing-workflow
 - 类型：写作 / 工作流型
 - 当前结论：一般
 - 适用场景：论文写作流程拆解、通用大纲生成、作为 workflow / 模板框架组织多个写作步骤
@@ -98,6 +110,18 @@
 - 商业化判断：**中低**
   - 可作为“论文写作编排层 / 模板层”继续观察
   - 暂不适合作为高质量论文生成核心模块
+
+---
+
+### 6. zeelin-academic-paper
+- 类型：写作 / 工作流型
+- 当前结论：一般
+- 适用场景：基于真实文献线索生成论文草稿、作为论文写作起稿辅助工具
+- 主要优点：已实际产出完整论文纯文本，不是空壳 skill；章节结构完整；与 `literature-review` 联动后主题贴合度更好
+- 主要问题：显式文献整合与 citation 对位不足；正文仍有较强模板化和概括性扩写痕迹；更像可继续加工的论文草稿，而非高可信终稿
+- 商业化判断：**中**
+  - 适合作为“论文起稿 / 草稿生成模块”继续观察
+  - 暂不适合作为高质量论文成稿核心模块
 
 ---
 
@@ -170,7 +194,6 @@
 
 ### 当前优先级 2
 继续写作 / 工作流型：
-- `research-paper-writer`
 - `zeelin-academic-paper`
 - `thesis-helper`
 
@@ -178,20 +201,25 @@
 
 ### 当前优先级 3
 汇总已测写作 / 工作流型的横向判断：
+- `research-paper-writer`
 - `paper-writing-workflow`
 
-目标：明确它更适合作为编排层 / 模板层，还是后续应降级观察优先级。
+目标：明确哪些只是 stub / 编排层，哪些还值得继续观察。
 
 ---
 
 ## 商业化视角下的当前判断
 
-截至目前，已完成测试的四个 skill 中，`daily-paper-digest` 已可以明确排除；`literature-review` 与 `academic-research-hub` 仍更接近“检索辅助 / toolbox”方向；`paper-writing-workflow` 则证明了工作流编排思路存在一定价值，但目前仍不足以作为高质量论文生成核心模块投入。
+截至目前，已完成测试的五个 skill 中，`daily-paper-digest` 与 `research-paper-writer` 已可以明确排除；`literature-review` 与 `academic-research-hub` 仍更接近“检索辅助 / toolbox”方向；`paper-writing-workflow` 则证明了工作流编排思路存在一定价值，但目前仍不足以作为高质量论文生成核心模块投入。
 
 ### 当前更接近可用的方向
 - **检索辅助型能力模块**：可继续观察 `literature-review`
 - **底层 research toolbox 模块**：可继续观察 `academic-research-hub`
 - **写作编排 / 模板层模块**：可继续观察 `paper-writing-workflow`
+
+### 当前已可排除的方向
+- **每日学术速递类不稳定实现**：`daily-paper-digest`
+- **空壳论文写作 skill**：`research-paper-writer`
 
 ### 当前仍不足的地方
 - 稳定性仍不够

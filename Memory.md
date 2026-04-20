@@ -19,6 +19,7 @@
   - 单篇总结 / 解析型：paper-summary、paper-summarize-academic
   - 写作 / 工作流型：research-paper-writer、paper-writing-workflow、zeelin-academic-paper、thesis-helper
 - `paper-writing-workflow` 子目录中安装的 `research-paper-writer` 与项目待测 skill `research-paper-writer` 是同一个 skill。
+- `research-paper-writer` 当前实际实现为 stub，只有成功消息与输入回显，不能实际生成论文正文。
 - 本项目要求始终用中文交流。
 - 本环境中 Python 由 `uv` 管理，涉及 Python 优先使用 `uv`。
 - git 提交信息使用中文。
@@ -43,6 +44,8 @@
 - 已完成 `academic-research-hub` 的首轮功能测试。
 - 已完成 `daily-paper-digest` 的首轮功能测试。
 - 已完成 `paper-writing-workflow` 的首轮测试与联动补测。
+- 已完成 `zeelin-academic-paper` 与 `literature-review` 联动的首轮写作补测，并已产出完整论文纯文本。
+- 已确认 `research-paper-writer` 当前为 stub，无法实际写出论文正文，并已同步更新总表判断。
 - 已创建 `.gitignore` 并将 `.clawhub/` 加入忽略规则。
 - 已完成首轮项目基础内容提交。
 
@@ -51,8 +54,7 @@
 
 ### 待完成
 - 开始单篇总结 / 解析型 skill（`paper-summary`、`paper-summarize-academic`）的首轮测试。
-- 开始写作 / 工作流型 skill（`research-paper-writer`、`zeelin-academic-paper`、`thesis-helper`）的首轮测试。
-- 将 `research-paper-writer` 作为独立待测 skill 继续完整测试，并与 `paper-writing-workflow` 中的联动观察结果交叉验证。
+- 开始写作 / 工作流型 skill（`thesis-helper`）的首轮测试。
 - 汇总各类型 skill 的阶段性横向对比结论。
 - 持续更新飞书汇报文档。
 
