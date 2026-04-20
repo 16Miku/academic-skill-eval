@@ -49,6 +49,7 @@
 - 已确认 `research-paper-writer` 当前为 stub，无法实际写出论文正文，并已同步更新总表判断。
 - 已创建 `.gitignore` 并将 `.clawhub/` 加入忽略规则。
 - 已完成首轮项目基础内容提交。
+- 已完成 `academic-writing-skills` 的首轮测试，确认其更适合作为论文后处理 / 投稿前审查 / reviewer 模拟工具套件，不适合从零生成论文正文，也不适合把纯文本 / Markdown 直接转换成专业 LaTeX 论文。
 
 ### 进行中
 - 正在逐个执行各 skill 的实际测评，并沉淀测试记录与综合结论。

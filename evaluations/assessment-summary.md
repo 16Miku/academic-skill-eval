@@ -28,6 +28,7 @@
 - `paper-writing-workflow`
 - `zeelin-academic-paper`
 - `thesis-helper`
+- `academic-writing-skills`
 
 ### 待测
 - `paper-summary`
@@ -52,6 +53,7 @@
 | paper-writing-workflow | 写作 / 工作流型 | 已完成首轮测试 | 一般 | 论文写作流程拆解、通用大纲生成、作为上层 workflow / 模板框架组织写作步骤 | 直接自动产出高质量论文初稿、稳定串联依赖 skill 完成端到端写作 | 中低 | 更像 workflow 脚手架；联动补测显示关键依赖 `research-paper-writer` 当前仍是 stub |
 | zeelin-academic-paper | 写作 / 工作流型 | 已完成首轮测试 | 一般 | 基于真实文献线索生成论文草稿、作为写作起稿辅助工具 | 直接生成高可信终稿、严格逐篇引用整合 | 中 | 已实际产出完整论文纯文本；联动 `literature-review` 后更贴题，但仍偏模板化草稿 |
 | thesis-helper | 写作 / 工作流型 | 已完成首轮测试 | 一般 | 论文大纲模板、摘要模板、引用格式参考、答辩准备、完成度检查 | 直接生成完整论文正文、围绕具体主题产出高质量综述草稿 | 中低 | 有真实脚本入口，但本质是论文辅助工具箱；`defense` 依赖 `bc`，英文空格题目解析有问题 |
+| academic-writing-skills | 写作后处理 / 审稿型 | 已完成首轮测试 | 一般偏可用 | 已有 `.tex`/`.typ`/`.pdf` 论文的投稿前体检、深度审稿、英文 LaTeX 多模块精修、revision roadmap 生成 | 从零生成整篇论文、把纯文本/Markdown 直接转换成专业 LaTeX 论文 | 中 | `paper-audit` 价值最明显；`latex-paper-en` 适合精修；`typst-paper` 当前仓库缺少可直接运行的 `.typ` 示例文件 |
 
 ---
 
@@ -137,6 +139,18 @@
 
 ---
 
+### 8. academic-writing-skills
+- 类型：写作后处理 / 审稿型
+- 当前结论：一般偏可用
+- 适用场景：已有 `.tex` / `.typ` / `.pdf` 论文的投稿前体检、深度审稿、英文 LaTeX 论文精修、revision roadmap 生成
+- 主要优点：`paper-audit` 的 `quick-audit` 与 `deep-review` 已实际跑通；`deep-review` 能生成 `review_report.md`、`peer_review_report.md`、`final_issues.json`、`revision_roadmap.md`；`latex-paper-en` 的多模块检查能分开定位 grammar / sentences / logic / experiment 问题
+- 主要问题：不适合从零生成整篇论文；不适合把纯文本 / Markdown 直接转成专业 LaTeX 论文；`typst-paper` 当前仓库缺少可直接运行的 `.typ` 示例文件，演示材料不完整
+- 商业化判断：**中**
+  - 适合作为“论文后处理 / 投稿前审查 / reviewer 模拟”能力模块继续观察
+  - 不适合作为“论文生成核心模块”继续投入
+
+---
+
 ## 文件索引
 
 ### literature-review
@@ -193,6 +207,12 @@
 - 运行记录：`evaluations/thesis-helper/run/notes.md`
 - 综合结论：`evaluations/thesis-helper/run/conclusion.md`
 
+### academic-writing-skills
+- 测试任务：`evaluations/academic-writing-skills/run/task.md`
+- 原始输出：`evaluations/academic-writing-skills/run/raw-output.md`
+- 运行记录：`evaluations/academic-writing-skills/run/notes.md`
+- 综合结论：`evaluations/academic-writing-skills/run/conclusion.md`
+
 ---
 
 ## 当前阶段建议
@@ -223,7 +243,7 @@
 
 ## 商业化视角下的当前判断
 
-截至目前，已完成测试的七个 skill 中，`daily-paper-digest` 与 `research-paper-writer` 已可以明确排除；`literature-review` 与 `academic-research-hub` 仍更接近“检索辅助 / toolbox”方向；`paper-writing-workflow` 证明了工作流编排思路存在一定价值；`zeelin-academic-paper` 已能产出完整论文草稿但仍偏模板化；`thesis-helper` 则更适合作为论文辅助工具箱。
+截至目前，已完成测试的八个 skill / skill 套件中，`daily-paper-digest` 与 `research-paper-writer` 已可以明确排除；`literature-review` 与 `academic-research-hub` 仍更接近“检索辅助 / toolbox”方向；`paper-writing-workflow` 证明了工作流编排思路存在一定价值；`zeelin-academic-paper` 已能产出完整论文草稿但仍偏模板化；`thesis-helper` 更适合作为论文辅助工具箱；`academic-writing-skills` 则更适合作为已有论文的后处理、投稿前审查和 reviewer 模拟模块，而不是从零写作或 Markdown 转 LaTeX 的转换模块。
 
 ### 当前更接近可用的方向
 - **检索辅助型能力模块**：可继续观察 `literature-review`
