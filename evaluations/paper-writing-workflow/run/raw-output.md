@@ -132,7 +132,8 @@ PYTHONIOENCODING=utf-8 uv run python scripts/paper_writing_workflow.py "Agent Sy
 
 ### research-paper-writer
 - 提供 IEEE / ACM 论文结构、澄清问题、章节写作流程
-- 更像论文正文写作型 skill
+- 说明文档看起来像正文写作型 skill
+- 但实际本地实现 `index.js` 仍是占位 stub
 
 ### scientific-visualization
 - 提供 publication-ready figure 指南、matplotlib / seaborn 方案
@@ -142,3 +143,46 @@ PYTHONIOENCODING=utf-8 uv run python scripts/paper_writing_workflow.py "Agent Sy
 - `paper-writing-workflow` 主脚本自身并不会自动调用上述已安装依赖
 - 即使依赖已安装，当前脚本仍然只输出“建议下一步去调用哪些 skill”
 - 因此 workflow 联动主要停留在说明层，而非自动串联执行层
+
+## 模块 E：联动补测（research-paper-writer 实际执行）
+
+### 执行命令
+```bash
+PYTHONIOENCODING=utf-8 node -e "import('./index.js').then(async m => { const res = await m.default({ topic: 'Agent Systems for LLMs', outline: ['Abstract','Introduction','Related Work','Methods','Discussion','Conclusion'], language: 'zh' }); console.log(JSON.stringify(res, null, 2)); })"
+```
+
+### 结果摘要
+- 命令执行成功
+- 但返回结果仅是占位成功消息和输入回显
+- 没有生成论文正文、章节内容、引用或结构化写作结果
+
+### 关键输出节选
+```json
+{
+  "message": "Skill 'research-paper-writer' executed successfully!",
+  "input": {
+    "topic": "Agent Systems for LLMs",
+    "outline": [
+      "Abstract",
+      "Introduction",
+      "Related Work",
+      "Methods",
+      "Discussion",
+      "Conclusion"
+    ],
+    "language": "zh"
+  }
+}
+```
+
+### 补充观察
+- `index.js` 核心逻辑仅为：
+```js
+// TODO: implement actual logic for this skill
+return {
+  message: "Skill 'research-paper-writer' executed successfully!",
+  input
+}
+```
+- Node 运行时还出现 `MODULE_TYPELESS_PACKAGE_JSON` 警告，但这不是主问题
+- 真正主问题是：该依赖 skill 当前没有实现实际写作逻辑

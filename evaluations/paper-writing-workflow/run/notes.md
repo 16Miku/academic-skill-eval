@@ -2,7 +2,7 @@
 
 ## 基本记录
 - 执行时间：2026-04-21
-- 使用入口：`openclaw.skill.json`、`scripts/paper_writing_workflow.py`
+- 使用入口：`openclaw.skill.json`、`scripts/paper_writing_workflow.py`、`skills/research-paper-writer/index.js`
 - 是否严格只使用该 skill：否（按测试设计安装并观察其声明依赖 skills）
 
 ## 过程记录
@@ -13,6 +13,7 @@
 - 默认 `generate` 模式会输出 6 阶段工作流和建议步骤，但不会自动生成论文内容。
 - `outline` 模式可以生成一个 Markdown 大纲文件，这是当前脚本最明确、最实际的产出。
 - 读取已安装依赖的 `SKILL.md` 后可见，依赖 skill 本身各有能力说明，但主 workflow 没有真正把它们串成自动执行链路。
+- 进一步对 `research-paper-writer` 做联动补测，实际执行后只返回成功消息与输入回显，没有生成任何正文内容。
 
 ## 问题与异常
 - 声明依赖与 ClawHub 实际可安装情况不一致：`scientific-writing`、`citation-management`、`scientific-schematics`、`hypothesis-generation` 未找到。
@@ -20,10 +21,12 @@
 - 主脚本只支持 `generate` / `outline` / `polish` 这类简单动作，未实现自动调用外部依赖 skill 的机制。
 - 生成的大纲对主题贴合度有限，本质上仍是通用 paper skeleton。
 - `SKILL.md` 与 `openclaw.skill.json` 宣称的“完整写作流程”强于实际脚本能力，存在宣传与实现不完全一致的问题。
+- `research-paper-writer` 本地实现仍是 stub，核心逻辑只有 `TODO: implement actual logic for this skill`，这是联动补测未能产出正文的直接根因。
 
 ## 主观观察
 - 这个 skill 更像“论文写作流程说明器 + 大纲脚手架”，不是强执行型 workflow。
 - 它在概念层面把论文写作拆成 6 个阶段，这一点对新手有帮助。
 - 但真正的价值高度依赖外部 skill 生态是否完整、可安装、可衔接。
 - 当前实现下，它最可靠的实际产出是一个通用大纲文件；离“完整论文写作 workflow”还有明显距离。
+- 联动补测进一步说明：即使 workflow 路径上某些依赖安装成功，只要关键子 skill 仍是占位实现，整条写作链路也无法形成高质量论文产出。
 - 从商业化视角看，它更像编排层 / 模板层候选，而不是可直接交付高质量论文写作结果的核心模块。
