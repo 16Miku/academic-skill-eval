@@ -45,6 +45,7 @@
 - 已完成 `daily-paper-digest` 的首轮功能测试。
 - 已完成 `paper-writing-workflow` 的首轮测试与联动补测。
 - 已完成 `zeelin-academic-paper` 与 `literature-review` 联动的首轮写作补测，并已产出完整论文纯文本。
+- 已完成 `thesis-helper` 的完整脚本流程测试，确认其更适合作为论文辅助工具箱。
 - 已确认 `research-paper-writer` 当前为 stub，无法实际写出论文正文，并已同步更新总表判断。
 - 已创建 `.gitignore` 并将 `.clawhub/` 加入忽略规则。
 - 已完成首轮项目基础内容提交。
@@ -54,7 +55,6 @@
 
 ### 待完成
 - 开始单篇总结 / 解析型 skill（`paper-summary`、`paper-summarize-academic`）的首轮测试。
-- 开始写作 / 工作流型 skill（`thesis-helper`）的首轮测试。
 - 汇总各类型 skill 的阶段性横向对比结论。
 - 持续更新飞书汇报文档。
 

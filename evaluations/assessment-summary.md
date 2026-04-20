@@ -27,11 +27,11 @@
 - `academic-research-hub`
 - `paper-writing-workflow`
 - `zeelin-academic-paper`
+- `thesis-helper`
 
 ### 待测
 - `paper-summary`
 - `paper-summarize-academic`
-- `thesis-helper`
 
 ### 暂不推荐
 - `daily-paper-digest`
@@ -51,7 +51,7 @@
 | research-paper-writer | 写作 / 工作流型 | 已完成首轮测试 | 不推荐 | 不适合 | 不适合 | 低 | 已验证为 stub，不能实际生成论文正文 |
 | paper-writing-workflow | 写作 / 工作流型 | 已完成首轮测试 | 一般 | 论文写作流程拆解、通用大纲生成、作为上层 workflow / 模板框架组织写作步骤 | 直接自动产出高质量论文初稿、稳定串联依赖 skill 完成端到端写作 | 中低 | 更像 workflow 脚手架；联动补测显示关键依赖 `research-paper-writer` 当前仍是 stub |
 | zeelin-academic-paper | 写作 / 工作流型 | 已完成首轮测试 | 一般 | 基于真实文献线索生成论文草稿、作为写作起稿辅助工具 | 直接生成高可信终稿、严格逐篇引用整合 | 中 | 已实际产出完整论文纯文本；联动 `literature-review` 后更贴题，但仍偏模板化草稿 |
-| thesis-helper | 写作 / 工作流型 | 待测 | 待定 | 待测 | 待测 | 待定 | 待执行首轮测试 |
+| thesis-helper | 写作 / 工作流型 | 已完成首轮测试 | 一般 | 论文大纲模板、摘要模板、引用格式参考、答辩准备、完成度检查 | 直接生成完整论文正文、围绕具体主题产出高质量综述草稿 | 中低 | 有真实脚本入口，但本质是论文辅助工具箱；`defense` 依赖 `bc`，英文空格题目解析有问题 |
 
 ---
 
@@ -125,6 +125,18 @@
 
 ---
 
+### 7. thesis-helper
+- 类型：写作 / 工作流型（论文辅助工具箱）
+- 当前结论：一般
+- 适用场景：论文大纲模板、摘要模板、引用格式参考、答辩准备、论文完成度检查
+- 主要优点：有真实脚本入口；功能边界清晰；`cite` 与 `checklist` 对格式规范和交付前检查有一定实用价值
+- 主要问题：不具备论文正文生成能力；`outline` 与 `abstract` 以模板输出为主；`defense` 依赖 `bc` 且当前环境缺失；英文空格题目解析存在问题
+- 商业化判断：**中低**
+  - 适合作为“论文辅助 / 检查模块”继续观察
+  - 不适合作为论文生成核心模块
+
+---
+
 ## 文件索引
 
 ### literature-review
@@ -194,23 +206,24 @@
 
 ### 当前优先级 2
 继续写作 / 工作流型：
-- `zeelin-academic-paper`
-- `thesis-helper`
+- 已完成当前写作 / 工作流型 skill 的首轮测试
 
-目标：筛选哪些 skill 真正能支撑综述草稿写作，哪些只是模板或工作流包装。
+目标：后续如新增写作型 skill，再继续验证其是否能真正支撑综述草稿写作，还是只是模板或工作流包装。
 
 ### 当前优先级 3
 汇总已测写作 / 工作流型的横向判断：
 - `research-paper-writer`
 - `paper-writing-workflow`
+- `zeelin-academic-paper`
+- `thesis-helper`
 
-目标：明确哪些只是 stub / 编排层，哪些还值得继续观察。
+目标：明确哪些只是 stub / 编排层 / 辅助工具箱，哪些还值得继续观察。
 
 ---
 
 ## 商业化视角下的当前判断
 
-截至目前，已完成测试的五个 skill 中，`daily-paper-digest` 与 `research-paper-writer` 已可以明确排除；`literature-review` 与 `academic-research-hub` 仍更接近“检索辅助 / toolbox”方向；`paper-writing-workflow` 则证明了工作流编排思路存在一定价值，但目前仍不足以作为高质量论文生成核心模块投入。
+截至目前，已完成测试的七个 skill 中，`daily-paper-digest` 与 `research-paper-writer` 已可以明确排除；`literature-review` 与 `academic-research-hub` 仍更接近“检索辅助 / toolbox”方向；`paper-writing-workflow` 证明了工作流编排思路存在一定价值；`zeelin-academic-paper` 已能产出完整论文草稿但仍偏模板化；`thesis-helper` 则更适合作为论文辅助工具箱。
 
 ### 当前更接近可用的方向
 - **检索辅助型能力模块**：可继续观察 `literature-review`
