@@ -13,7 +13,7 @@
   - zeelin-academic-paper
   - thesis-helper
   - paper-summary
-- 当前已确认采用“按 skill 类型分任务”的测评方式，而不是所有 skill 都统一测试写论文。
+- 当前已确认采用"按 skill 类型分任务"的测评方式，而不是所有 skill 都统一测试写论文。
 - 当前认可的初步分组：
   - 搜索 / 检索型：literature-review、academic-research-hub、daily-paper-digest
   - 单篇总结 / 解析型：paper-summary、paper-summarize-academic
@@ -25,6 +25,7 @@
 - git 提交信息使用中文。
 
 ## 当前进度
+
 ### 已完成
 - 已完成论文相关 skills 的初步调研。
 - 已创建飞书调研文档并写入初版内容。
@@ -37,7 +38,7 @@
 - 已确认不再用统一写论文任务测所有 skill，而是按 skill 类型分任务测评。
 - 已确认当前的 skill 分组方案。
 - 已创建项目级 `CLAUDE.md`。
-- 已创建本项目 `Memory.md`。
+- 已创建项目 `Memory.md`。
 - 已创建项目根目录 `README.md`。
 - 已为各 skill 的 `run/` 目录创建统一模板文件。
 - 已完成 `literature-review` 的首轮功能测试。
@@ -47,14 +48,25 @@
 - 已完成 `zeelin-academic-paper` 与 `literature-review` 联动的首轮写作补测，并已产出完整论文纯文本。
 - 已完成 `thesis-helper` 的完整脚本流程测试，确认其更适合作为论文辅助工具箱。
 - 已确认 `research-paper-writer` 当前为 stub，无法实际写出论文正文，并已同步更新总表判断。
-- 已创建 `.gitignore` 并将 `.clawhub/` 加入忽略规则。
-- 已完成首轮项目基础内容提交。
-- 已完成 `academic-writing-skills` 的首轮测试，确认其更适合作为论文后处理 / 投稿前审查 / reviewer 模拟工具套件，不适合从零生成论文正文，也不适合把纯文本 / Markdown 直接转换成专业 LaTeX 论文。
-- **已完成用 CC 直接写 arXiv 水平论文的首次实战**：
-  - 主题：AI Agent 发展历程综述
-  - 产出：13 页 PDF，28 篇引用，1 图 + 1 表
-  - 位置：`papers/agent-survey/output/agent-survey.pdf`
-  - 验证：排版、引用格式、图表、参考文献列表均达到 arXiv 标准
+- 已完成 `academic-writing-skills` 的首轮测试，确认其更适合作为论文后处理 / 投稿前审查 / reviewer 模拟工具套件。
+- 已完善 `.gitignore`（新增 `.claude/`、`__pycache__/`、`.venv/`、LaTeX 编译中间文件）。
+
+### 已完成：arXiv 论文实战（2026-04-21 ~ 2026-04-23）
+- **主题**：AI Agent 发展历程综述
+- **产出**：
+  - 15 页 PDF（`papers/agent-survey/output/agent-survey.pdf`）
+  - 39 篇真实引用（`papers/agent-survey/references.bib`）
+  - 2 幅 TikZ 图（Agent 架构图 + 发展时间线）+ 2 个表格
+  - 9 个章节 + Abstract + Keywords
+- **配套文档**：
+  - `papers/agent-survey/PRACTICE_GUIDE.md`（~1000 行完整实践指南，含 uv 安装步骤）
+  - `papers/agent-survey/PLAN.md`（执行计划）
+  - `papers/agent-survey/lit_search_llm_agents.json`（文献检索中间数据）
+- **核心结论**：CC 直接写 LaTeX 可行，不依赖任何 paper-writing skill，免费工具链足够。
+- **Git 提交记录**：
+  - `2213315` 完成用 CC 写出 arXiv 规格论文的首次实战
+  - `fe2c225` 补充 PRACTICE_GUIDE.md 中 uv 安装步骤文档
+  - `8358bb2` 完善 .gitignore 并提交遗漏的中间产物
 
 ### 进行中
 - 正在逐个执行各 skill 的实际测评，并沉淀测试记录与综合结论。
@@ -83,8 +95,10 @@
 ### 遇到的问题与解决
 1. **Semantic Scholar API 限流**：改用 BrightData + 已有知识构建文献库
 2. **WebSearch API 错误**：改用 BrightData search_engine
-3. **MiKTeX 宏包缺失**：配置自动安装 + 手动安装关键宏包
-4. **literature-review skill 脚本退出码 49**：跳过，直接用其他方式检索文献
+3. **MiKTeX 宏包缺失**：配置 AutoInstall（`initexmf --set-config-value="[MPM]AutoInstall=yes"`）+ 手动安装关键宏包
+4. **MiKTeX 编译卡住**：AutoInstall 配置后解决，不再弹窗等待确认
+5. **newtxmath/amssymb \Bbbk 冲突**：添加 `\let\Bbbk\relax` 解决
+6. **literature-review skill 脚本退出码 49**：跳过，直接用其他方式检索文献
 
 ### 核心发现
 - **Skill 不是必需的**：对于论文写作，CC 的核心能力（理解需求、生成 LaTeX、引用文献）已经足够
@@ -94,11 +108,5 @@
   - 脚本稳定性不足（literature-review 退出码 49）
   - 端到端流程不完整（缺少从内容到 PDF 的自动化）
 
-### 下一步优化方向
-1. 补充更多文献（目标 40-60 篇）
-2. 增加图表（时间线图、多智能体协作图、评估基准对比表）
-3. 扩展 Applications 和 Challenges 章节内容
-4. 添加 Related Work 章节对比其他综述论文
-
 ## 备注
-- 后续每推进一个关键阶段，都需要同步更新本文件中的“当前进度”。
+- 后续每推进一个关键阶段，都需要同步更新本文件中的"当前进度"。
