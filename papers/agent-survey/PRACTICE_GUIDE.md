@@ -117,15 +117,53 @@ bibtex --version
 
 ### 2.3 Python/uv 环境（可选）
 
-仅在需要运行辅助脚本（如批量获取 BibTeX）时才需要：
+仅在需要运行辅助脚本（如批量获取 BibTeX、数据可视化等）时才需要。本项目使用 [uv](https://docs.astral.sh/uv/) 管理 Python 环境。
+
+#### 安装 uv
+
+**Windows（推荐使用 winget）：**
+```powershell
+winget install --id=astral-sh.uv -e
+```
+
+或使用 PowerShell 安装脚本：
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+**macOS / Linux：**
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+macOS 也可通过 Homebrew：
+```bash
+brew install uv
+```
+
+**验证安装：**
+```bash
+uv --version
+```
+
+#### 初始化 Python 环境
 
 ```bash
-# 使用 uv 管理 Python 环境（推荐）
+# 安装 Python 3.11（uv 会自动管理，无需系统级安装）
 uv python install 3.11
+
+# 在项目目录下创建虚拟环境
 uv venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-uv pip install requests
+
+# 激活虚拟环境
+source .venv/bin/activate  # macOS / Linux
+.venv\Scripts\activate     # Windows (cmd)
+
+# 安装所需依赖
+uv pip install requests matplotlib
 ```
+
+> **说明**：本次实战中 Python 环境并非必需——所有图表均使用 TikZ 在 LaTeX 内直接绘制，文献检索使用 BrightData MCP。Python 仅作为备选方案（如用 matplotlib 生成图表、用脚本批量处理 BibTeX 等）。
 
 ### 2.4 BrightData MCP（可选，用于增强文献检索）
 
