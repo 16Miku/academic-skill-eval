@@ -50,7 +50,7 @@
 - 已确认 `research-paper-writer` 当前为 stub，无法实际写出论文正文，并已同步更新总表判断。
 - 已完成 `academic-writing-skills` 的首轮测试，确认其更适合作为论文后处理 / 投稿前审查 / reviewer 模拟工具套件。
 - 已完善 `.gitignore`（新增 `.claude/`、`__pycache__/`、`.venv/`、LaTeX 编译中间文件）。
-- 已规划并创建 `skills/arxiv-paper-writer/` skill 子项目，用于把 `papers/agent-survey` 的 arXiv 论文写作实战流程沉淀为可复用 Claude Code skill；当前先作为普通目录开发，后续可迁移为独立仓库并作为 submodule 接入。
+- 已规划、创建并发布 `arxiv-paper-writer` skill 子项目，用于把 `papers/agent-survey` 的 arXiv 论文写作实战流程沉淀为可复用 Claude Code skill；当前已推送到 GitHub 独立仓库 `https://github.com/16Miku/arxiv-paper-writer-skill.git`，父项目已通过 Git submodule 接入，并已发布到 ClawHub：`https://clawhub.ai/16miku/arxiv-paper-writer`（版本：`arxiv-paper-writer@0.1.0`，发布 ID：`k97ekrsn8p00174pmzjf826pfd85gr5s`）。
 
 ### 已完成：arXiv 论文实战（2026-04-21 ~ 2026-04-23）
 - **主题**：AI Agent 发展历程综述
@@ -64,10 +64,11 @@
   - `papers/agent-survey/PLAN.md`（执行计划）
   - `papers/agent-survey/lit_search_llm_agents.json`（文献检索中间数据）
 - **核心结论**：CC 直接写 LaTeX 可行，不依赖任何 paper-writing skill，免费工具链足够。
-- **Git 提交记录**：
+- **Git / 发布记录**：
   - `2213315` 完成用 CC 写出 arXiv 规格论文的首次实战
   - `fe2c225` 补充 PRACTICE_GUIDE.md 中 uv 安装步骤文档
   - `8358bb2` 完善 .gitignore 并提交遗漏的中间产物
+  - `arxiv-paper-writer` 已发布为独立 skill：GitHub `https://github.com/16Miku/arxiv-paper-writer-skill.git`，ClawHub `https://clawhub.ai/16miku/arxiv-paper-writer`（版本：`arxiv-paper-writer@0.1.0`，发布 ID：`k97ekrsn8p00174pmzjf826pfd85gr5s`）
 
 ### 进行中
 - 正在逐个执行各 skill 的实际测评，并沉淀测试记录与综合结论。
