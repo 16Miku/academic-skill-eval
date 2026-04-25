@@ -1,0 +1,3 @@
+[submodule "skills/arxiv-paper-writer"]
+	path = skills/arxiv-paper-writer
+	url = https://github.com/16Miku/arxiv-paper-writer-skill.git
