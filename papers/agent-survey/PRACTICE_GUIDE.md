@@ -4,6 +4,8 @@
 >
 > **实战成果**：一篇 15 页的英文综述论文 "From Symbolic Agents to LLM-Powered Autonomy: A Comprehensive Survey on the Evolution of AI Agents"，包含 39 篇引用、2 幅图表（Agent 架构图 + 发展时间线）、2 个表格（框架对比表 + 评估基准对比表），共 9 个章节 + Abstract + Keywords，达到 arXiv 投稿标准。
 
+![Windows 端 Claude Code 写 arXiv 论文全流程](image/generate_paper_flowchart.png)
+
 ---
 
 ## 一、项目概述
