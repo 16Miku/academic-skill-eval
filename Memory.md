@@ -50,6 +50,7 @@
 - 已确认 `research-paper-writer` 当前为 stub，无法实际写出论文正文，并已同步更新总表判断。
 - 已完成 `academic-writing-skills` 的首轮测试，确认其更适合作为论文后处理 / 投稿前审查 / reviewer 模拟工具套件。
 - 已完善 `.gitignore`（新增 `.claude/`、`__pycache__/`、`.venv/`、LaTeX 编译中间文件）。
+- 已规划并创建 `skills/arxiv-paper-writer/` skill 子项目，用于把 `papers/agent-survey` 的 arXiv 论文写作实战流程沉淀为可复用 Claude Code skill；当前先作为普通目录开发，后续可迁移为独立仓库并作为 submodule 接入。
 
 ### 已完成：arXiv 论文实战（2026-04-21 ~ 2026-04-23）
 - **主题**：AI Agent 发展历程综述

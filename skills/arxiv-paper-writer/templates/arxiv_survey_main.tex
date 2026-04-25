@@ -1,0 +1,99 @@
+\pdfoutput=1
+\documentclass[11pt,a4paper]{article}
+
+% Encoding and fonts
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+% Layout and typography
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{setspace}
+\onehalfspacing
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\let\Bbbk\relax
+
+% Figures and tables
+\usepackage{graphicx}
+\usepackage[font=small,labelfont=bf,format=hang]{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\setlist{nosep}
+
+% Colors and TikZ
+\usepackage{xcolor}
+\definecolor{linkblue}{RGB}{0,51,153}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,fit,calc}
+
+% Citations and links
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=linkblue,
+  citecolor=linkblue,
+  urlcolor=linkblue,
+  pdftitle={PAPER_TITLE},
+  pdfsubject={PAPER_SUBJECT},
+  pdfkeywords={PAPER_KEYWORDS},
+  bookmarks=true,
+  bookmarksopen=true
+}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\crefname{figure}{Fig.}{Figs.}
+\crefname{table}{Table}{Tables}
+\crefname{section}{Sec.}{Secs.}
+
+\title{\textbf{PAPER_TITLE}}
+\author{PAPER_AUTHOR}
+\date{PAPER_DATE}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+ABSTRACT_TEXT
+\end{abstract}
+
+\vspace{0.5em}
+\noindent\textbf{Keywords:} PAPER_KEYWORDS
+
+\section{Introduction}
+\label{sec:introduction}
+
+Introduce the research area, motivation, scope, and contribution claims. Cite real work such as \citet{vaswani2017attention}.
+
+\section{Background and Definitions}
+\label{sec:background}
+
+Define the core concepts and terminology used throughout the paper.
+
+\section{Main Survey Body}
+\label{sec:survey-body}
+
+Organize the literature by historical stages, technical themes, or methodological categories.
+
+\section{Challenges and Future Directions}
+\label{sec:challenges}
+
+Discuss limitations, open problems, safety concerns, evaluation gaps, and promising future work.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Summarize the paper and restate the main takeaways.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}
