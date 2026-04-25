@@ -1555,7 +1555,7 @@ git diff --cached -- CLAUDE.md README.md Memory.md docs/superpowers/plans/2026-0
 
 Expected: diff includes only the new skill, plan, and intended documentation updates.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 Run:
 
@@ -1576,11 +1576,11 @@ Expected: commit succeeds.
 
 ## Self-Review Checklist
 
-- [ ] Spec coverage: the plan creates the skill, templates, references, scripts, evals, README, submodule notes, parent docs, validation, and commit.
+- [x] Spec coverage: the plan creates the skill, templates, references, scripts, evals, README, submodule notes, parent docs, validation, and commit.
 - [x] Placeholder scan: the plan contains no unresolved placeholder markers listed in Task 13 Step 2.
-- [ ] Scope check: the first version is a self-contained normal directory, not a premature nested Git repo or submodule migration.
-- [ ] Type/path consistency: all file paths use `skills/arxiv-paper-writer/` consistently.
-- [ ] User constraint: documentation writing is split into small chunks; future implementation should also write large documents in small file edits.
+- [x] Scope check: the first version is a self-contained normal directory, not a premature nested Git repo or submodule migration.
+- [x] Type/path consistency: all file paths use `skills/arxiv-paper-writer/` consistently.
+- [x] User constraint: documentation writing is split into small chunks; future implementation should also write large documents in small file edits.
 
 ---
 
