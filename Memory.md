@@ -50,7 +50,7 @@
 - 已确认 `research-paper-writer` 当前为 stub，无法实际写出论文正文，并已同步更新总表判断。
 - 已完成 `academic-writing-skills` 的首轮测试，确认其更适合作为论文后处理 / 投稿前审查 / reviewer 模拟工具套件。
 - 已完善 `.gitignore`（新增 `.claude/`、`__pycache__/`、`.venv/`、LaTeX 编译中间文件）。
-- 已规划、创建并发布 `arxiv-paper-writer` skill 子项目，用于把 `papers/agent-survey` 的 arXiv 论文写作实战流程沉淀为可复用 Claude Code skill；当前已推送到 GitHub 独立仓库 `https://github.com/16Miku/arxiv-paper-writer-skill.git`，父项目已通过 Git submodule 接入，并已发布到 ClawHub：`https://clawhub.ai/16miku/arxiv-paper-writer`（版本：`arxiv-paper-writer@0.1.0`，发布 ID：`k97ekrsn8p00174pmzjf826pfd85gr5s`）。
+- 已规划、创建并发布 `arxiv-paper-writer` skill 子项目，用于把 `papers/agent-survey` 的 arXiv 论文写作实战流程沉淀为可复用 Claude Code skill；当前已推送到 GitHub 独立仓库 `https://github.com/16Miku/arxiv-paper-writer-skill.git`，父项目已通过 Git submodule 接入，并已发布到 ClawHub：`https://clawhub.ai/16miku/arxiv-paper-writer`（版本：`arxiv-paper-writer@0.1.0`，发布 ID：`k97ekrsn8p00174pmzjf826pfd85gr5s`）。已按方案 B 选择性迁移 `papers/agent-survey` 可复用资产到 skill，包括完整 9 章节 survey 模板、39 条真实 BibTeX 示例、TikZ/表格模板、实践指南、Linux TeX Live 指南和流程图资产。
 
 ### 已完成：arXiv 论文实战（2026-04-21 ~ 2026-04-23）
 - **主题**：AI Agent 发展历程综述
@@ -69,6 +69,7 @@
   - `fe2c225` 补充 PRACTICE_GUIDE.md 中 uv 安装步骤文档
   - `8358bb2` 完善 .gitignore 并提交遗漏的中间产物
   - `arxiv-paper-writer` 已发布为独立 skill：GitHub `https://github.com/16Miku/arxiv-paper-writer-skill.git`，ClawHub `https://clawhub.ai/16miku/arxiv-paper-writer`（版本：`arxiv-paper-writer@0.1.0`，发布 ID：`k97ekrsn8p00174pmzjf826pfd85gr5s`）
+  - 已将 `papers/agent-survey` 成功实战中的核心可复用资产按方案 B 模板化迁移到 `skills/arxiv-paper-writer/`，并在独立 skill 仓库提交为 `29bbb64`。
 
 ### 进行中
 - 正在逐个执行各 skill 的实际测评，并沉淀测试记录与综合结论。
